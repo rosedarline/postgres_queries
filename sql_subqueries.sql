@@ -1,6 +1,6 @@
-SELECT * FROM students
-SELECT * FROM courses
-SELECT * FROM student_enrollment
+SELECT * FROM students;
+SELECT * FROM courses;
+SELECT * FROM student_enrollment;
 
 SELECT student_name
 FROM students
@@ -24,4 +24,4 @@ LIMIT 1)sub
 				  
 SELECT * 
 FROM students				  
-WHERE age = (SELECT MAX(age) FROM students)
+WHERE age = (SELECT MAX(age) FROM students);
