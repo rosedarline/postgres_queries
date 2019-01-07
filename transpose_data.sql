@@ -6,7 +6,7 @@ GROUP BY department
 
 SELECT SUM(CASE WHEN department = 'Sports' THEN 1 ELSE 0 END) AS Sports,
 SUM (CASE WHEN department = 'Tools' THEN 1 ELSE 0 END) AS Tools,
-SUM (CASE WHEN = 'Clothing' THEN 1 ELSE 0 END) AS Clothing,
+SUM (CASE WHEN department = 'Clothing' THEN 1 ELSE 0 END) AS Clothing,
 SUM (CASE WHEN department = 'Computers' THEN 1 ELSE 0 END) AS Computers
 FROM employees
 
