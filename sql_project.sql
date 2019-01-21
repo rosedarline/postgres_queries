@@ -2,7 +2,7 @@
 
 SELECT * FROM students 
 WHERE student_no NOT IN (SELECT student_no FROM student_enrollment
-					     WHERE course_no != 'CS180')
+			 WHERE course_no != 'CS180')
 ORDER BY student_name;
 
 -- Write a query to find students who take SC110 or CS107 byt not bothSELECT * FROM students 
@@ -11,12 +11,12 @@ SELECT *
 FROM students s, student_enrollment se
 WHERE s.student_no = se.student_no
 AND se.course_no IN ('CS110', 'CS107')
-AND s.student_no NOT IN (SELECT s.student_no 
-						 FROM student_enrollment s, student_enrollment e
-					     WHERE s.student_no = e.student_no
-						 AND s.course_no = 'CS110'
-					     AND e.course_no = 'CS107')
-						 
+AND s.student_no NOT IN (SELECT s.student_no  FROM student_enrollment s, student_enrollment e
+			 WHERE s.student_no = e.student_no
+			 AND s.course_no = 'CS110'
+			 AND e.course_no = 'CS107');
+
+--OR
 SELECT *
 FROM students s
 INNER JOIN student_enrollment se
@@ -31,6 +31,7 @@ INNER JOIN student_enrollment se
 ON s.student_no = se.student_no
 WHERE se.course_no = 'CS220';
 
+--OR
 SELECT *
 FROM students s , student_enrollment se
 WHERE s.student_no = se.student_no
@@ -50,6 +51,6 @@ HAVING COUNT(*) <= 2;
 SELECT * 
 FROM students s
 WHERE 2 <= (SELECT COUNT(*)
-		    FROM students s2
-		    WHERE s.age < s2.age);
+	    FROM students s2
+	    WHERE s.age < s2.age);
 			
